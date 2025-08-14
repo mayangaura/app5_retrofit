@@ -1,3 +1,5 @@
+## Tujuan 
+
 Project RecyclerView Ini adalah proyek sederhana untuk belajar RecyclerView menggunakan Git & Android Studio
 
 ##  👥Tim 
