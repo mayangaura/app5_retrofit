@@ -1,4 +1,4 @@
-<img width="784" height="688" alt="image" src="https://github.com/user-attachments/assets/3d272876-58ba-4264-8dc9-33bd0bb80056" />## Tujuan 
+## Tujuan 
 
 Project RecyclerView Ini adalah proyek sederhana untuk belajar RecyclerView menggunakan Git & Android Studio
 
