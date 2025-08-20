@@ -57,13 +57,15 @@ Project RecyclerView Ini adalah proyek sederhana untuk belajar RecyclerView meng
   <img width="858" height="536" alt="image" src="https://github.com/user-attachments/assets/fcd6004b-9d07-4d7d-bf3b-04f36d030932" />
 
   Selanjutnya, ada SplashScreen.kt yang berfungsi menampilkan layar pembuka aplikasi. Pada file ini menggunakan Handler dengan postDelayed untuk menunda perpindahan ke halaman utama (MainActivity) selama beberapa detik. Dengan begitu, pengguna akan melihat logo terlebih dahulu sebelum masuk ke aplikasi utama.
+  
 
--activity_detailboox.xml
-<img width="993" height="837" alt="image" src="https://github.com/user-attachments/assets/cc00c0bf-6d81-4077-8bfa-56987bfd7460" />
+- activity_detailboox.xml
+  
+  <img width="993" height="837" alt="image" src="https://github.com/user-attachments/assets/cc00c0bf-6d81-4077-8bfa-56987bfd7460" />
 
-<img width="784" height="786" alt="image" src="https://github.com/user-attachments/assets/2353c8cd-c242-48a1-b6b3-344ffeca414e" />
+  <img width="784" height="786" alt="image" src="https://github.com/user-attachments/assets/2353c8cd-c242-48a1-b6b3-344ffeca414e" />
 
-<img width="784" height="688" alt="image" src="https://github.com/user-attachments/assets/fdba2085-4b7a-4ce4-8914-140a29916e16" />
+  <img width="784" height="688" alt="image" src="https://github.com/user-attachments/assets/fdba2085-4b7a-4ce4-8914-140a29916e16" />
 
   Kode XML di atas adalah layout untuk halaman Detail Buku. Root-nya memakai LinearLayout dengan orientasi vertical, sehingga semua elemen ditumpuk dari atas ke bawah. LinearLayout ini berukuran penuh layar (match_parent) dan punya tools:context agar Android Studio tahu kelas pemilik layout ketika di-preview.
 Bagian pertama adalah TextView dengan teks “Detail Buku” yang diformat besar (40sp), bold, berwarna hitam, dan diposisikan di tengah. TextView ini berfungsi sebagai judul halaman. Di bawahnya ada ImageView berukuran 80dp x 80dp yang ditaruh di tengah, menampilkan gambar dari resource @drawable/bukubumi. Gambar ini punya contentDescription untuk aksesibilitas dan diberi margin bawah agar tidak menempel pada elemen berikutnya.
@@ -76,9 +78,10 @@ Bagian pertama adalah TextView dengan teks “Detail Buku” yang diformat besar
   Ketiga TextView tersebut tidak diisi langsung di XML, tapi disiapkan ID-nya supaya bisa diakses dan diisi nilai dinamis lewat kode Java/Kotlin menggunakan findViewById atau ViewBinding.
 Secara keseluruhan, layout ini akan menampilkan halaman detail dengan struktur: judul besar di atas, ikon buku di tengah, lalu kartu berisi informasi detail buku (judul, penulis, tahun). Elemen visual seperti warna (@color/black) dan gambar (@drawable/bukubumi) diambil dari resource project.
 
--activity_main.xml
 
-<img width="1173" height="900" alt="Screenshot 2025-08-20 091414" src="https://github.com/user-attachments/assets/1fca7253-4911-4fa8-b41a-07907b84f582" />
+- activity_main.xml
+
+  <img width="1173" height="900" alt="Screenshot 2025-08-20 091414" src="https://github.com/user-attachments/assets/1fca7253-4911-4fa8-b41a-07907b84f582" />
 
 Kode activity_main.xml merupakan rancangan antarmuka utama pada aplikasi. Struktur layout menggunakan LinearLayout dengan orientasi vertikal, sehingga setiap elemen di dalamnya ditampilkan secara berurutan dari atas ke bawah. Ukuran LinearLayout diatur penuh sesuai lebar dan tinggi layar perangkat (match_parent). Atribut tools:context menunjuk pada kelas MainActivity, sehingga Android Studio mengetahui konteks kelas yang menggunakan layout ini saat dilakukan pratinjau.
 
@@ -88,9 +91,10 @@ Kode activity_main.xml merupakan rancangan antarmuka utama pada aplikasi. Strukt
  
   Secara keseluruhan, layout ini dirancang untuk menyajikan halaman utama aplikasi yang terdiri atas judul “Daftar Buku” di bagian atas serta daftar koleksi buku yang ditampilkan menggunakan RecyclerView. Struktur sederhana ini memberikan pengalaman pengguna yang terorganisir dan informatif, di mana judul halaman berfungsi sebagai identitas utama dan daftar buku menjadi konten inti yang ditampilkan.
 
--acitvity_splashscreen.xml
 
-<img width="1092" height="654" alt="image" src="https://github.com/user-attachments/assets/50274454-9ab8-43a0-b889-b3b71ad46da9" />
+- acitvity_splashscreen.xml
+
+  <img width="1092" height="654" alt="image" src="https://github.com/user-attachments/assets/50274454-9ab8-43a0-b889-b3b71ad46da9" />
 
   Kode XML tersebut mendefinisikan sebuah tampilan antarmuka yang digunakan sebagai halaman splash screen dalam aplikasi Android. Elemen root menggunakan LinearLayout dengan lebar dan tinggi yang disesuaikan penuh terhadap layar perangkat (match_parent). Atribut android:orientation="vertical" menentukan bahwa apabila terdapat lebih dari satu elemen, susunannya akan ditampilkan secara vertikal. Selanjutnya, atribut android:gravity="center" berfungsi untuk menempatkan seluruh komponen di dalam layout agar berada tepat di bagian tengah layar, baik secara horizontal maupun vertikal. Selain itu, deklarasi tools:context=".splashscreen" menunjukkan bahwa layout ini dikaitkan dengan kelas Splashscreen, sehingga Android Studio dapat memberikan pratinjau yang sesuai.
   
@@ -98,13 +102,14 @@ Kode activity_main.xml merupakan rancangan antarmuka utama pada aplikasi. Strukt
   
   Secara keseluruhan, rancangan layout ini dirancang untuk menampilkan sebuah logo pada saat aplikasi pertama kali dijalankan. Tampilan tersebut berfungsi sebagai splash screen, yaitu halaman pembuka yang biasanya digunakan untuk menampilkan identitas aplikasi berupa logo atau animasi singkat sebelum pengguna diarahkan menuju halaman utama. Dengan demikian, kode ini tidak hanya memberikan pengalaman visual yang lebih profesional, tetapi juga berperan sebagai pengenal awal identitas aplikasi kepada pengguna.
 
+
 - item_post.xml
 
-<img width="945" height="758" alt="image" src="https://github.com/user-attachments/assets/e2a90b36-9052-479d-b4f2-fe05ded8ccd1" />
+  <img width="945" height="758" alt="image" src="https://github.com/user-attachments/assets/e2a90b36-9052-479d-b4f2-fe05ded8ccd1" />
 
-<img width="948" height="739" alt="image" src="https://github.com/user-attachments/assets/5a4d61d3-49e4-4242-b1ab-f5c14becbe3e" />
+  <img width="948" height="739" alt="image" src="https://github.com/user-attachments/assets/5a4d61d3-49e4-4242-b1ab-f5c14becbe3e" />
 
-<img width="949" height="642" alt="image" src="https://github.com/user-attachments/assets/df37f823-8427-4ca1-bebb-9e67d0f2f3c6" />
+  <img width="949" height="642" alt="image" src="https://github.com/user-attachments/assets/df37f823-8427-4ca1-bebb-9e67d0f2f3c6" />
 
 Kode XML tersebut adalah rancangan sebuah layout item yang biasanya dipakai untuk menampilkan informasi buku dalam bentuk kartu (card). Root layout menggunakan LinearLayout dengan orientasi vertikal dan tinggi yang mengikuti konten (wrap_content), sehingga ukurannya akan menyesuaikan isi di dalamnya.
 Di dalamnya terdapat CardView yang berfungsi sebagai wadah utama. CardView diberi atribut cardCornerRadius="8dp" agar sudutnya membulat, cardElevation="8dp" untuk memberikan efek bayangan sehingga terlihat menonjol, dan cardUseCompatPadding="true" supaya tampilan padding konsisten di berbagai versi Android.
@@ -118,3 +123,14 @@ Kedua, terdapat LinearLayout vertikal dengan padding 15dp yang berfungsi untuk m
 
 
 ## 📸 Screenshoot Hasil
+
+![detailbuku](https://github.com/user-attachments/assets/2ded86ca-66a8-441a-8bb7-3bdd125ec61d)
+![popup detail](https://github.com/user-attachments/assets/af5923c8-ac6d-4eab-8d49-aa0d952200b7)
+![daftarbuku](https://github.com/user-attachments/assets/806f33a4-fc88-4119-b0e8-c0f302ad92f0)
+![splashscreen](https://github.com/user-attachments/assets/50f8d693-380c-4534-8400-0e731e5b4f11)
+
+
+
+
+
+
