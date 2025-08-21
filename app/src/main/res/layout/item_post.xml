@@ -19,7 +19,6 @@
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/bukubumi"
                 android:id="@+id/img_buku"/>
 
         <LinearLayout

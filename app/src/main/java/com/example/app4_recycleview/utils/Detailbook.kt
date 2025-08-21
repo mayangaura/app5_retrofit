@@ -2,11 +2,13 @@ package com.example.app4_recycleview.utils
 
 import android.icu.text.CaseMap.Title
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.example.app4_recycleview.R
 
 class detailbook : AppCompatActivity() {
@@ -23,6 +25,7 @@ class detailbook : AppCompatActivity() {
         val tvTitle = findViewById<TextView>(R.id.tvtitle_det)
         val tvPenulis = findViewById<TextView>(R.id.tvpenulis_det)
         val tvTahun = findViewById<TextView>(R.id.tvtahun_det)
+        val imgCover = findViewById<ImageView>(R.id.coverimg)
 
         val Title = intent.getStringExtra("book_title")
         val Penulis = intent.getStringExtra("book_penulis")
@@ -31,5 +34,9 @@ class detailbook : AppCompatActivity() {
         tvTitle.text = Title
         tvPenulis.text = Penulis
         tvTahun.text = Tahun
+
+        Glide.with(this)
+            .load(intent.getStringExtra("cover"))
+            .into(imgCover)
     }
 }
