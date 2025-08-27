@@ -95,60 +95,45 @@ Secara keseluruhan, layout ini akan menampilkan halaman detail dengan struktur: 
 
   
 - Book.kt
-- utils (ApiService.kt)
-- utils (RetrofitClient.kt)
-- Detailbook.kt
-- MainActivity.kt
-- splashscreen.kt
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- model
-  
-  <img width="382" height="195" alt="image" src="https://github.com/user-attachments/assets/00a5dd04-a66d-4dce-98d5-c4f02b22f2a3" />
+    <img width="382" height="195" alt="image" src="https://github.com/user-attachments/assets/00a5dd04-a66d-4dce-98d5-c4f02b22f2a3" />
   
   Bagian pertama ini adalah Model pada file Book.kt. Menggunakan data class untuk merepresentasikan data buku yang memiliki tiga properti, yaitu judul (title), penulis (author), dan gambar (imageResId). Model ini berfungsi sebagai kerangka data yang nantinya ditampilkan di aplikasi. Dengan adanya model, struktur data ini menjadi lebih jelas dan konsisten di seluruh bagian program.
 
-
-- dummydata
   
-  <img width="653" height="441" alt="image" src="https://github.com/user-attachments/assets/3a1b2410-a646-46ac-9d46-7605d7114f79" />
-  
-  Selanjutnya, pada file DummyData.kt berisi data sementara yang berbentuk list dari objek Book tadi. Data ini berisi beberapa buku yang memiliki judul, penulis, serta gambar yang diambil dari folder drawable. Karena bersifat dummy, data ini digunakan hanya untuk kebutuhan uji coba aplikasi agar daftar buku dapat ditampilkan meskipun belum terhubung dengan database asli.
+- utils (ApiService.kt)
 
-- mainactivity.kt
-  
-  <img width="832" height="634" alt="image" src="https://github.com/user-attachments/assets/0d82aa85-d474-412b-bb00-04fb74dba1c5" />
-  
-  Pada file MainActivity.kt ini, aplikasi mengatur tampilan utama menggunakan activity_main.xml yang berisi sebuah RecyclerView. RecyclerView kemudian dihubungkan dengan LinearLayoutManager agar data ditampilkan secara vertikal seperti daftar. Adapter yang sudah dibuat kemudian dipanggil dengan menggunakan data dari DummyData. Di dalam adapter ini juga terdapat intent yang mengirim data buku ke DetailBook ketika item ditekan. Dengan demikian, MainActivity berfungsi sebagai halaman utama aplikasi untuk menampilkan daftar semua buku.
+  <img width="764" height="260" alt="image" src="https://github.com/user-attachments/assets/e43b2d48-abe1-4a69-84d0-ff648db33a5e" />
 
+  ApiService.kt, yang mendefinisikan interface ApiService. Interface ini berisi deklarasi endpoint yang akan diakses oleh Retrofit. Dalam contoh ini, terdapat sebuah fungsi getBuku() dengan anotasi @GET("buku"), yang berarti akan melakukan request HTTP GET ke endpoint https://api.abdyllaan.cc/buku. Fungsi tersebut mengembalikan objek Call<List<Book>>, yaitu permintaan HTTP yang dapat dijalankan secara asynchronous, dan hasilnya berupa daftar objek Book. Dengan demikian, ApiService berperan sebagai blueprint atau kontrak komunikasi antara aplikasi dan API, sedangkan RetrofitClient adalah konfigurasi Retrofit untuk menghubungkan aplikasi ke server API.
+  
+  
+- utils (RetrofitClient.kt)
 
-- detailbook.kt
+  <img width="808" height="435" alt="image" src="https://github.com/user-attachments/assets/b90bf836-f824-488a-b871-b7d84320546b" />
+
+  RetrofitClient.kt berfungsi untuk membuat sebuah object bernama RetrofitClient yang menyimpan konfigurasi Retrofit. Di dalamnya terdapat variabel BASE_URL yang berisi URL endpoint utama dari API, yaitu https://api.abdyllaan.cc/. Kemudian dibuat properti instance menggunakan delegasi by lazy, yang berarti Retrofit hanya akan diinisialisasi ketika pertama kali digunakan. Pada builder Retrofit, ditentukan baseUrl sesuai dengan BASE_URL, serta ditambahkan converter GsonConverterFactory agar data JSON dari API dapat otomatis dikonversi menjadi objek Kotlin. Terakhir, Retrofit dipakai untuk membuat implementasi dari interface ApiService.
+
+  
+- Detailbook.kt
 
   <img width="866" height="643" alt="image" src="https://github.com/user-attachments/assets/9bde233e-54fa-478b-a6fc-7b2ae1c71d80" />
 
   Berikutnya terdapat DetailBook.kt, yaitu halaman yang digunakan untuk menampilkan detail dari buku yang dipilih. Data buku dikirim dari MainActivity menggunakan Intent, kemudian diterima pada DetailBook melalui getStringExtra dan getIntExtra. Data tersebut kemudian ditampilkan ke komponen layout activity_detailbook.xml, sehingga pengguna dapat melihat detail buku berupa judul, penulis, dan gambar yang lebih lengkap.
 
+  
+- MainActivity.kt
+  
+  <img width="832" height="634" alt="image" src="https://github.com/user-attachments/assets/0d82aa85-d474-412b-bb00-04fb74dba1c5" />
+  
+  Pada file MainActivity.kt ini, aplikasi mengatur tampilan utama menggunakan activity_main.xml yang berisi sebuah RecyclerView. RecyclerView kemudian dihubungkan dengan LinearLayoutManager agar data ditampilkan secara vertikal seperti daftar. Adapter yang sudah dibuat kemudian dipanggil dengan menggunakan data dari DummyData. Di dalam adapter ini juga terdapat intent yang mengirim data buku ke DetailBook ketika item ditekan. Dengan demikian, MainActivity berfungsi sebagai halaman utama aplikasi untuk menampilkan daftar semua buku.
 
-- splashcreen.kt
+  
+- splashscreen.kt
 
-  <img width="858" height="536" alt="image" src="https://github.com/user-attachments/assets/fcd6004b-9d07-4d7d-bf3b-04f36d030932" />
+    <img width="858" height="536" alt="image" src="https://github.com/user-attachments/assets/fcd6004b-9d07-4d7d-bf3b-04f36d030932" />
 
   Selanjutnya, ada SplashScreen.kt yang berfungsi menampilkan layar pembuka aplikasi. Pada file ini menggunakan Handler dengan postDelayed untuk menunda perpindahan ke halaman utama (MainActivity) selama beberapa detik. Dengan begitu, pengguna akan melihat logo terlebih dahulu sebelum masuk ke aplikasi utama.
-  
-
 
 
 
